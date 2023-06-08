@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <script src="js/main.js" defer></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css">
+</head>
+    <body>
+        
+        <div class="todo">
+            <div class="todo__header">
+                <h1 class="font-semibold text-4xl text-center mb-4">Lista de Tareas</h1>
+            </div>
+
+            <div class="todo__add">
+                <form id="js-todo-form">
+                    <input id="input" type="text" placeholder="Agregar Tarea ...">
+                    <!-- <button onclick="handleFormSubmit(this);">guardar</button> -->
+                    <button>guardar</button>
+                </form>
+            
+                <div class="todo__body js-todo-body">
+                    <!-- <ul class="todo__list js-todo-list">
+                        <li data-id="1" data-status="pending">
+                            <label for="1">
+                                <input type="checkbox" id="1" value="1"/>
+                                <input type="text" value="Learn how to create menu">
+                            </label>
+                            <div class="actions">
+                                <button class="js-edit">
+                                    <i class="ri-pencil-fill"></i>
+                                </button>
+                                <button class="js-delete">
+                                    <i class="ri-delete-bin-fill"></i>
+                                </button>
+                            </div>
+                        </li>
+
+                        <li data-id="2" data-status="completed">
+                            <label for="2">
+                                <input type="checkbox" id="2" value="2"/>
+                                <input type="text" value="Learn how to create resume">
+                            </label>
+                            <div class="actions">
+                                <button class="js-edit">
+                                    <i class="ri-pencil-fill"></i>
+                                </button>
+                                <button class="js-delete">
+                                    <i class="ri-delete-bin-fill"></i>
+                                </button>
+                            </div>
+                        </li>
+                    </ul> -->
+
+                    <!--<div class="empty">
+                            <img src="img/laptop.png" alt="empty state">
+                            <p class="title">it's lonely here ...</p>
+                    </div>--><!--está solo aquí-->
+                </div>
+
+                <div class="todo__footer">
+                    <span class="count js-count">0 items left</span>
+                    <span class="clear js-clear">Clear All</span>
+                </div>       
+            </div>
+        </div>        
+    </body>
+</html>

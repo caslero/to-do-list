@@ -1,0 +1,176 @@
+body {
+    /**background: linear-gradient(to right, #fc5c7d, #6a82fb);*/
+    background-color: rgb(213, 247, 247);
+}
+
+*, ::before, ::after {
+    box-sizing: border-box;
+}
+
+/** Para centrar el contenedor*/
+.todo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 400px;
+    width: 100%;
+}
+
+/** Todo header*/
+    /** Todo header title*/
+/** Todo header*/
+
+
+/** .todo__add*/
+.todo__add form {
+    margin-bottom: 10px;
+    box-shadow: 3px 3px 5px #494949;
+}
+
+.todo__add input {
+    width: 100%;
+    font-size: 14px;
+    border: none;
+    padding: 10px;
+    background-color: #243763;
+    color: #fff;
+}
+
+/** Color del placeholder*/
+.todo__add input::placeholder {
+    color: #ffff;
+    font-weight: 700;
+}
+
+.todo__add input:focus-visible {
+    outline: none;
+}
+
+.todo__body {
+    background-color: #243763;
+    width: 100%;
+    height: 250px;
+    overflow-y: auto;
+    box-shadow: 3px 3px 5px #494949;
+}
+
+/**Contenedor de la imagen*/
+.todo__body .empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 250px;
+    row-gap: 5px;
+}
+
+.todo__body .empty img {
+    width: 150px;
+}
+
+.todo__body .empty .title {
+    color: #fff;
+    margin: 0;
+}
+
+/** Quitamos todos los estilos x defecto*/
+.todo__list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+/** Estilo de los items li*/
+.todo__list li {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #494949;
+    padding: 5px 10px;
+    gap: 5px;
+}
+
+/** Quitando los ultimos estilos de los items*/
+.todo__list li:last-child {
+    border-bottom: none;
+}
+
+.todo__list li label {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.todo__list li input[type="text"] {
+    border: none;
+    width: 100%;
+    font-size: 12px;
+    border-radius: 3px;
+}
+
+/** Quitar input de la lista*/
+.todo__list li input[type="text"]:focus-visible {
+    outline: auto;
+}
+
+/** Lista De items*/
+.todo__list li input[type="text"]:read-only {
+    background: transparent;
+    color: #fff;
+    pointer-events: none;
+}
+
+/**Estilos de la checkbox*/
+.todo__list li input[type="checkbox"] {
+    margin: 0;
+    width: 10px;
+    cursor: pointer;
+}
+
+/** Estilos cuando este marcado*/
+.todo__list li[data-status="completed"] input[type="text"] {
+    text-decoration: line-through;
+    color: #aaa;
+}
+
+.todo__list li .actions {
+    display: flex;
+    column-gap: 5px;
+}
+
+.todo__list li .actions button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 12px;
+    background-color: #fff;
+    padding: 3px;
+    border-radius: 100px;
+}
+
+.todo__list li .actions button:hover {
+    color: #fff;
+    background-color: #000;
+}
+
+.todo__footer {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    background-color: #243763;
+    box-shadow: 3px 3px 5px #494949;
+    color: #fff;
+    font-size: 12px;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.todo__footer .clear {
+    cursor: pointer;
+}
+
+.asa {
+    background-color: #fff;
+}
