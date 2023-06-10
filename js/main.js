@@ -7,7 +7,6 @@ const $todoForm = document.getElementById('js-todo-form'),
 
 
 //Datos globales para el array todos
-
 let todos = [];
 
 //para cargar el evento
@@ -16,27 +15,27 @@ $todoForm.addEventListener('submit', handleFormSubmit);
 $todoBody.addEventListener('click', handleFormAction);
 $clear.addEventListener('click', handleClearTodos);
 
+
+
 function handleFormSubmit(e) {   
          e.preventDefault();
-   
-
-    const $input = document.querySelector('input'),
-                   todo = $input.value,
-                   myTodo = { id: Date.now(), task: todo, status: 'pending' }
-
+    
+    let $input = document.querySelector('input');
+    let todo = $input.value;
+    let myTodo = { id: todos.length, task: todo, status: 'pending' }
     todos.push(myTodo);
     
-    localStorage.setItem('todos' , JSON.stringify(todos));
-    $input.value = '';
-    
     //Creamos la ul del html
-    if (todo.length === 1) renderTodoList();
+    if (todos.length === 1) 
+        
+        renderTodoList();
 
-    renderTodo(myTodo);
+        renderTodo(myTodo);
 
-    //Actualizar datos
-    updateListCount();
- 
+        //Actualizar datos    
+        updateListCount();
+        localStorage.setItem('todos' , JSON.stringify(todos));     
+        $input.value = '';
 }
 
 
@@ -52,7 +51,7 @@ function cargarVentana() {
 
         todos.map((todo) => {
             renderTodo(todo);
-        })
+        });
     }
     updateListCount();
 }
@@ -60,14 +59,14 @@ function cargarVentana() {
 
 function renderEmptyState() {
     $todoBody.innerHTML = `<div class="empty">
-                                <img src="img/laptop.png" alt="empty state">
-                                <p class="title">it's lonely here ...</p>
+                                <img src="img/tareas.png" alt="empty state">
+                                <p class="title">Sin Tareas Pendientes ...</p>
                            </div>`
 }
 
 
 function renderTodoList() {
-    $todoBody.innerHTML = `<ul class="todo__list js-todo-list"></ul>`;
+    $todoBody.innerHTML = `<ul class="todo__list js-todo-list" id="listados"></ul>`;
 }
 
 
@@ -75,9 +74,8 @@ function renderTodo(todo) {
     //Creamos el todo list usando el pase de todo el objeto
     let todoList = `<li data-id="${todo.id}" data-status="${todo.status}">
                         <label for="${todo.id}">
-                            <input type="checkbox" id="${todo.id}" value="${todo.id}" ${todo.status === 'completed' ? 'checked' : null}/>
-                            <input class="asa" type="text" value="${todo.task}" readonly >
-                            
+                            <input type="checkbox" id="${todo.id}" value="${todo.id}" ${todo.status === 'completed' ? 'checked' : null}/>                       
+                            <input class="asa" type="text" value="${todo.task}" readonly >                            
                         </label>
                         <div class="actions">
                             <button class="js-edit">
@@ -88,15 +86,22 @@ function renderTodo(todo) {
                             </button>
                         </div>
                     </li>`;
-   
-        $todoBody.querySelector('.js-todo-list').innerHTML += todoList;
         
-    
+        $todoBody.querySelector('.js-todo-list').innerHTML += todoList;
+        //listados.insertAdjacentHTML('beforeend', todoList);
+       
+      
 }
 
 
 function updateListCount() {
-    $count.innerHTML = `${todos.length} items left`;
+    if (todos.length === 0) {
+         $count.innerHTML = `${todos.length} Tareas`;
+    } else {
+        $count.innerHTML = `${todos.length} Tareas`;
+        $clear.innerHTML = `Borrar Lista`;
+    }
+   
 }
 
 
@@ -129,6 +134,7 @@ function updateStatus(e) {
 
 
 function deleteTodo(e) {
+    
     const $delete = e.target.closest('.js-delete');
 
     if (!$delete) return;
@@ -156,10 +162,12 @@ function toggleInputState(e) {
     const id = $edit.closest('li').dataset.id,
                $input = $edit.closest('li').querySelector('input[type="text"]');
 
-    if ($input.hasAttribute('readonly')) $input.removeAttribute('readonly');
-     else $input.setAttribute('readonly', '');
+    if ($input.hasAttribute('readonly')) {
+        $input.removeAttribute('readonly');
+    } else {
+        $input.setAttribute('readonly', '');
+    }
     
-
     $input.addEventListener('keyup', updateTodo.bind(e, id));
 }
 
@@ -182,13 +190,3 @@ function handleClearTodos() {
     updateListCount();
     renderEmptyState();
 }
-
-// guardar.addEventListener('click', () => {
-//      handleFormSubmit();
-    
-// });
-// guardar.addEventListener('keyup', () => {
-//     handleFormSubmit();
-// });
-
-

@@ -3,11 +3,8 @@ body {
     background-color: rgb(213, 247, 247);
 }
 
-*, ::before, ::after {
-    box-sizing: border-box;
-}
 
-/** Para centrar el contenedor*/
+/** Para centrar el contenedor
 .todo {
     position: absolute;
     top: 50%;
@@ -15,19 +12,16 @@ body {
     transform: translate(-50%, -50%);
     max-width: 400px;
     width: 100%;
-}
-
-/** Todo header*/
-    /** Todo header title*/
-/** Todo header*/
+}*/
 
 
-/** .todo__add*/
+/** .todo__add
 .todo__add form {
     margin-bottom: 10px;
     box-shadow: 3px 3px 5px #494949;
-}
+}*/
 
+/**
 .todo__add input {
     width: 100%;
     font-size: 14px;
@@ -35,25 +29,27 @@ body {
     padding: 10px;
     background-color: #243763;
     color: #fff;
-}
+}*/
 
-/** Color del placeholder*/
+/** Color del placeholder
 .todo__add input::placeholder {
     color: #ffff;
     font-weight: 700;
-}
+}*/
 
+/**
 .todo__add input:focus-visible {
     outline: none;
-}
+}*/
 
+/**
 .todo__body {
     background-color: #243763;
     width: 100%;
     height: 250px;
     overflow-y: auto;
     box-shadow: 3px 3px 5px #494949;
-}
+}*/
 
 /**Contenedor de la imagen*/
 .todo__body .empty {
@@ -105,14 +101,19 @@ body {
 
 .todo__list li input[type="text"] {
     border: none;
-    width: 100%;
-    font-size: 12px;
+    width: 90%;
+    height: 25px;
+    font-size: 15px;
+    font-weight: 700;
     border-radius: 3px;
+    outline: none;
+    text-align: center;
+    
 }
 
 /** Quitar input de la lista*/
 .todo__list li input[type="text"]:focus-visible {
-    outline: auto;
+    outline: none;
 }
 
 /** Lista De items*/
@@ -125,14 +126,59 @@ body {
 /**Estilos de la checkbox*/
 .todo__list li input[type="checkbox"] {
     margin: 0;
-    width: 10px;
+    width: 20px;
+    height: 20px;
     cursor: pointer;
+    background-color: #fff;
+
+    /* margin-top: 5px;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+    background-color: #d5f7f7;     */
 }
+
+.todo__list li input[type=checkbox]:checked {
+    content: '';
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+    background-color: red;
+    font-size: 15px;
+    color:white;    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
 
 /** Estilos cuando este marcado*/
 .todo__list li[data-status="completed"] input[type="text"] {
     text-decoration: line-through;
-    color: #aaa;
+    color: #ff0000;
 }
 
 .todo__list li .actions {
@@ -141,36 +187,21 @@ body {
 }
 
 .todo__list li .actions button {
-    border: none;
+    border: 2px solid rgb(184, 177, 177);
     background: none;
     cursor: pointer;
     font-size: 12px;
-    background-color: #fff;
-    padding: 3px;
+    background-color: #d5f7f7;
+    width: 30px;
+    height: 30px;
     border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
 }
 
 .todo__list li .actions button:hover {
     color: #fff;
     background-color: #000;
-}
-
-.todo__footer {
-    display: flex;
-    align-items: center;
-    margin-top: 10px;
-    background-color: #243763;
-    box-shadow: 3px 3px 5px #494949;
-    color: #fff;
-    font-size: 12px;
-    justify-content: space-between;
-    padding: 10px;
-}
-
-.todo__footer .clear {
-    cursor: pointer;
-}
-
-.asa {
-    background-color: #fff;
 }
