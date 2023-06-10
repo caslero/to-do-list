@@ -3,54 +3,6 @@ body {
     background-color: rgb(213, 247, 247);
 }
 
-
-/** Para centrar el contenedor
-.todo {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    max-width: 400px;
-    width: 100%;
-}*/
-
-
-/** .todo__add
-.todo__add form {
-    margin-bottom: 10px;
-    box-shadow: 3px 3px 5px #494949;
-}*/
-
-/**
-.todo__add input {
-    width: 100%;
-    font-size: 14px;
-    border: none;
-    padding: 10px;
-    background-color: #243763;
-    color: #fff;
-}*/
-
-/** Color del placeholder
-.todo__add input::placeholder {
-    color: #ffff;
-    font-weight: 700;
-}*/
-
-/**
-.todo__add input:focus-visible {
-    outline: none;
-}*/
-
-/**
-.todo__body {
-    background-color: #243763;
-    width: 100%;
-    height: 250px;
-    overflow-y: auto;
-    box-shadow: 3px 3px 5px #494949;
-}*/
-
 /**Contenedor de la imagen*/
 .todo__body .empty {
     display: flex;
@@ -101,13 +53,14 @@ body {
 
 .todo__list li input[type="text"] {
     border: none;
-    width: 90%;
+    width: 100%;
     height: 25px;
     font-size: 15px;
     font-weight: 700;
     border-radius: 3px;
     outline: none;
     text-align: center;
+    text-transform:capitalize;
     
 }
 

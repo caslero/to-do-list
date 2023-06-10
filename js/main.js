@@ -72,8 +72,8 @@ function renderTodoList() {
 
 function renderTodo(todo) {
     //Creamos el todo list usando el pase de todo el objeto
-    let todoList = `<li data-id="${todo.id}" data-status="${todo.status}">
-                        <label for="${todo.id}">
+    let todoList = `<li data-id="${todo.id}" data-status="${todo.status}" class="space-x-4">
+                        <label for="${todo.id}" class="space-x-4">
                             <input type="checkbox" id="${todo.id}" value="${todo.id}" ${todo.status === 'completed' ? 'checked' : null}/>                       
                             <input class="asa" type="text" value="${todo.task}" readonly >                            
                         </label>
