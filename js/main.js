@@ -1,7 +1,9 @@
 const $todoForm = document.getElementById('js-todo-form'),
       $todoBody = document.querySelector('.js-todo-body'),
       $count = document.querySelector('.js-count'),
-      $clear = document.querySelector('.js-clear')
+      $clear = document.querySelector('.js-clear'),
+      $borrador = document.querySelector('.js-borrador')
+      //borrador = 'desmarcado';
 
 //let guardar = document.getElementById('guardar');
 
@@ -22,7 +24,7 @@ function handleFormSubmit(e) {
     
     let $input = document.querySelector('input');
     let todo = $input.value;
-    let myTodo = { id: todos.length, task: todo, status: 'pending' }
+    let myTodo = { id: todos.length, task: todo, status: 'pending', clase: 'desmarcar'}
     todos.push(myTodo);
     
     //Creamos la ul del html
@@ -40,6 +42,7 @@ function handleFormSubmit(e) {
 
 
 function cargarVentana() {
+   
     const localStorageTodos = JSON.parse(localStorage.getItem('todos'));
 
     todos = localStorageTodos || [];
@@ -48,9 +51,9 @@ function cargarVentana() {
         renderEmptyState();
     } else {
         renderTodoList();
-
         todos.map((todo) => {
             renderTodo(todo);
+            
         });
     }
     updateListCount();
@@ -58,10 +61,17 @@ function cargarVentana() {
 
 
 function renderEmptyState() {
-    $todoBody.innerHTML = `<div class="empty">
+
+    if (todos.length === 0) {
+        $todoBody.innerHTML = `<div class="empty">
                                 <img src="img/tareas.png" alt="empty state">
                                 <p class="title">Sin Tareas Pendientes ...</p>
                            </div>`
+    $count.innerHTML = `${todos.length} Tareas`;
+    $clear.innerHTML = '';
+    $borrador.innerHTML = '';
+    }
+    
 }
 
 
@@ -72,9 +82,9 @@ function renderTodoList() {
 
 function renderTodo(todo) {
     //Creamos el todo list usando el pase de todo el objeto
-    let todoList = `<li data-id="${todo.id}" data-status="${todo.status}" class="space-x-4">
-                        <label for="${todo.id}" class="space-x-4">
-                            <input type="checkbox" id="${todo.id}" value="${todo.id}" ${todo.status === 'completed' ? 'checked' : null}/>                       
+    let todoList = `<li data-id="${todo.id}" data-status="${todo.status}" data-clase="${todo.clase}" class="space-x-4">
+                        <label for="${todo.id}" class="space-x-4 marcar">
+                            <input type="checkbox" clase="marcado" id="${todo.id}" value="${todo.id}" ${todo.status === 'completed' ? 'checked' : null}/>                       
                             <input class="asa" type="text" value="${todo.task}" readonly >                            
                         </label>
                         <div class="actions">
@@ -86,23 +96,28 @@ function renderTodo(todo) {
                             </button>
                         </div>
                     </li>`;
-        
+
         $todoBody.querySelector('.js-todo-list').innerHTML += todoList;
-        //listados.insertAdjacentHTML('beforeend', todoList);
-       
-      
+        
+        //listados.insertAdjacentHTML('beforeend', todoList);      
 }
 
 
-function updateListCount() {
-    if (todos.length === 0) {
-         $count.innerHTML = `${todos.length} Tareas`;
-    } else {
+function updateListCount() {          
+    if (todos.length != 0) {
         $count.innerHTML = `${todos.length} Tareas`;
         $clear.innerHTML = `Borrar Lista`;
+        $borrador.innerHTML = `Eliminar Marcados`;
+    /**`<button class="js-quitar"><i class="ri-delete-bin-fill" onclick="marcado()"></i></button>`; */
+    } else {
+        $count.innerHTML = `${todos.length} Tareas`;
+        //$clear.innerHTML = `Borrar Lista`;
     }
-   
-}
+
+      localStorage.setItem('todos', JSON.stringify(todos));
+    
+};
+
 
 
 function handleFormAction(e) {
@@ -117,32 +132,37 @@ function handleFormAction(e) {
 
 function updateStatus(e) {
     const $status = e.target.closest('input[type="checkbox"]');
-
+    const $clase = e.target.closest('input[type="checkbox"]');
+    
     if (!$status) return;
+    
 
     const $li = $status.closest('li'),
           id = $li.dataset.id,
           status = $status.checked ? 'completed' : 'pending',
-          currentIndex = todos.findIndex((todo) => todo.id == id);
+          clase = $clase.checked ? 'marcar' : 'desmarcar',
 
-          $li.dataset.status = status;
+          currentIndex = todos.findIndex((todo) => todo.id == id);
+            
+          $li.dataset.status = status;          
 
           todos[currentIndex].status = status;
-
+          todos[currentIndex].clase = clase;   
+          
           localStorage.setItem('todos', JSON.stringify(todos));
 }
 
 
 function deleteTodo(e) {
-    
+  
     const $delete = e.target.closest('.js-delete');
-
+    
     if (!$delete) return;
 
     const id = $delete.closest('li').dataset.id;
-
+    
     todos = todos.filter((todo) => todo.id != id);
-
+    
     $delete.closest('li').remove();
 
     localStorage.setItem('todos', JSON.stringify(todos));
@@ -161,7 +181,6 @@ function toggleInputState(e) {
 
     const id = $edit.closest('li').dataset.id,
                $input = $edit.closest('li').querySelector('input[type="text"]');
-
     if ($input.hasAttribute('readonly')) {
         $input.removeAttribute('readonly');
     } else {
@@ -175,9 +194,7 @@ function toggleInputState(e) {
 function updateTodo(id, e) {
     let value  = e.target.value,
         index = todos.findIndex((todo) => todo.id == id);
-
     todos[index].task = value;
-
     localStorage.setItem('todos', JSON.stringify(todos));
 }
 
@@ -190,3 +207,24 @@ function handleClearTodos() {
     updateListCount();
     renderEmptyState();
 }
+
+
+function marcado(){    
+
+    let todosN = todos.filter(todo => todo.clase == 'desmarcar');
+ 
+    todos = todosN;
+
+    localStorage.setItem('todos', JSON.stringify(todos));
+
+    if (todos.length === 0) {
+        renderEmptyState();
+        updateListCount();
+    } else {
+       
+        cargarVentana();
+    }
+
+}
+
+
