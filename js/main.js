@@ -24,9 +24,11 @@ function handleFormSubmit(e) {
     
     let $input = document.querySelector('input');
     let todo = $input.value;
+
     let myTodo = { id: todos.length, task: todo, status: 'pending', clase: 'desmarcar'}
-    todos.push(myTodo);
     
+    todos.push(myTodo);
+    //todos.unshift(myTodo);
     //Creamos la ul del html
     if (todos.length === 1) 
         
@@ -39,6 +41,7 @@ function handleFormSubmit(e) {
         localStorage.setItem('todos' , JSON.stringify(todos));     
         $input.value = '';
 }
+
 
 
 function cargarVentana() {
@@ -57,7 +60,10 @@ function cargarVentana() {
         });
     }
     updateListCount();
+    localStorage.setItem('todos' , JSON.stringify(todos));     
+
 }
+
 
 
 function renderEmptyState() {
@@ -75,16 +81,18 @@ function renderEmptyState() {
 }
 
 
+
 function renderTodoList() {
     $todoBody.innerHTML = `<ul class="todo__list js-todo-list" id="listados"></ul>`;
 }
+
 
 
 function renderTodo(todo) {
     //Creamos el todo list usando el pase de todo el objeto
     let todoList = `<li data-id="${todo.id}" data-status="${todo.status}" data-clase="${todo.clase}" class="space-x-4">
                         <label for="${todo.id}" class="space-x-4 marcar">
-                            <input type="checkbox" clase="marcado" id="${todo.id}" value="${todo.id}" ${todo.status === 'completed' ? 'checked' : null}/>                       
+                            <input type="checkbox"  onclick="eliminarMarcados()" clase="marcados" id="${todo.id}" value="${todo.id}" ${todo.status === 'completed' ? 'checked' : null}/>                       
                             <input class="asa" type="text" value="${todo.task}" readonly >                            
                         </label>
                         <div class="actions">
@@ -103,18 +111,16 @@ function renderTodo(todo) {
 }
 
 
-function updateListCount() {          
+
+function updateListCount() {    
     if (todos.length != 0) {
         $count.innerHTML = `${todos.length} Tareas`;
-        $clear.innerHTML = `Borrar Lista`;
-        $borrador.innerHTML = `Eliminar Marcados`;
-    /**`<button class="js-quitar"><i class="ri-delete-bin-fill" onclick="marcado()"></i></button>`; */
+        $clear.innerHTML = `<button class="borrar-lista">Borrar Lista</button>`;
     } else {
         $count.innerHTML = `${todos.length} Tareas`;
-        //$clear.innerHTML = `Borrar Lista`;
     }
-
-      localStorage.setItem('todos', JSON.stringify(todos));
+    eliminarMarcados();
+    localStorage.setItem('todos', JSON.stringify(todos));
     
 };
 
@@ -130,12 +136,12 @@ function handleFormAction(e) {
 }
 
 
+
 function updateStatus(e) {
     const $status = e.target.closest('input[type="checkbox"]');
     const $clase = e.target.closest('input[type="checkbox"]');
     
-    if (!$status) return;
-    
+    if (!$status) return;    
 
     const $li = $status.closest('li'),
           id = $li.dataset.id,
@@ -147,10 +153,12 @@ function updateStatus(e) {
           $li.dataset.status = status;          
 
           todos[currentIndex].status = status;
-          todos[currentIndex].clase = clase;   
+          todos[currentIndex].clase = clase;        
           
+          eliminarMarcados();
           localStorage.setItem('todos', JSON.stringify(todos));
 }
+
 
 
 function deleteTodo(e) {
@@ -174,6 +182,7 @@ function deleteTodo(e) {
 }
 
 
+
 function toggleInputState(e) {
     const $edit = e.target.closest('.js-edit');
     
@@ -191,6 +200,7 @@ function toggleInputState(e) {
 }
 
 
+
 function updateTodo(id, e) {
     let value  = e.target.value,
         index = todos.findIndex((todo) => todo.id == id);
@@ -199,16 +209,24 @@ function updateTodo(id, e) {
 }
 
 
-function handleClearTodos() {
-    todos = [];
-    localStorage.setItem('todos', JSON.stringify(todos));
 
-    $todoBody.innerHTML = '';
-    updateListCount();
-    renderEmptyState();
+function handleClearTodos() {
+    let respuesta = prompt('Eliminar lista, Presione Y para Borrar, N para salir: ')
+
+    if (respuesta === 'Y' || respuesta === 'y') {
+        todos = [];
+        localStorage.setItem('todos', JSON.stringify(todos));
+    
+        $todoBody.innerHTML = '';
+        updateListCount();
+        renderEmptyState();
+    }
+   
 }
 
 
+
+/** Funcion para eliminar solo los elementos que estan marcados */
 function marcado(){    
 
     let todosN = todos.filter(todo => todo.clase == 'desmarcar');
@@ -223,8 +241,27 @@ function marcado(){
     } else {
        
         cargarVentana();
+        eliminarMarcados();
     }
 
+}
+
+
+
+/** Funcion para mostrar el boton de eliminar marcados mientras haya al menos un elemento marcado */
+function eliminarMarcados() {
+
+    let i = 0;
+    let todosN = todos.filter(todo => todo.clase === 'marcar');
+
+    if (todosN == 0) {
+        i = false;
+        $borrador.innerHTML = '';
+    } else {
+        i = true;
+        $borrador.innerHTML = `<button class="borrar-marcados">Borrar Marcados</button>`;
+    }       
+   
 }
 
 
