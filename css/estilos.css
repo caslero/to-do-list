@@ -1,7 +1,7 @@
-body {
-    /**background: linear-gradient(to right, #fc5c7d, #6a82fb);*/
+/* body {
+    background: linear-gradient(to right, #fc5c7d, #6a82fb);
     background-color: #8BE5E7;
-}
+} */
 
 /**Contenedor de la imagen*/
 .todo__body .empty {
@@ -72,7 +72,7 @@ body {
 /** Lista De items*/
 .todo__list li input[type="text"]:read-only {
     background: transparent;
-    color: #fff;
+    color: #7DDCF5;
     pointer-events: none;
 }
 
@@ -82,7 +82,7 @@ body {
     width: 25px;
     height: 25px;
     border-radius: 100%;
-    background-color: #d82121;
+    background-color: #FA6450;
     opacity: 0.9;
     font-size: 15px;
     color:white;  
@@ -103,7 +103,7 @@ body {
 /** Estilos cuando este marcado*/
 .todo__list li[data-status="completed"] input[type="text"] {
     text-decoration: line-through;
-    color: #d82121;
+    color: #FA6450;
     opacity: 0.9;
 }
 
@@ -116,48 +116,43 @@ body {
 .borrar-marcados {
     width: 150px;
     height: 40px;
-    border: 1px solid red;
+    border: 1px solid #7DDCF5;
     background-color: white;
     border-radius: 30px;
+    color: #7DDCF5;
 }
 
 .borrar-marcados:hover {
     width: 150px;
     height: 40px;
-    background-color: #d82121;
+    background-color: #7DDCF5;
     opacity: 0.9;
-    color: white;
+    color: #5F7175;
     font-weight: 700;
     border-radius: 30px;
 }
 
+/** #7DDCF5*/
 
 
 .borrar-lista {
     width: 150px;
     height: 40px;
+    border: 1px solid #7DDCF5;
     background-color: white;
-    color: #f9a8d4;
     border-radius: 30px;
+    color: #7DDCF5;
 }
 
 .borrar-lista:hover {
-    
-    background-color: white;
-    color: #e63e9a;
-    border: 1px solid #e63e9a;
+    width: 150px;
+    height: 40px;
+    background-color: #7DDCF5;
+    opacity: 0.9;
+    color: #5F7175;
+    font-weight: 700;
+    border-radius: 30px;
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -167,18 +162,19 @@ body {
     cursor: pointer;
     font-size: 12px;
     background-color: white;
-    color: #f9a8d4;
+    color: #7DDCF5;
     width: 30px;
     height: 30px;
     border-radius: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 2px;
+    margin-top: 4px;
+    margin-bottom: 4px; 
 }
 
-.todo__list li .actions button:hover {
-    color: white;
-    background-color: #e63e9a;
+.todo__list li .actions button:hover {   
+    background-color: #7DDCF5;
+    opacity: 0.9;
+    color: #5F7175;
+    font-weight: 700;
+    border-radius: 30px;
 }
 

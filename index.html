@@ -15,20 +15,20 @@
         <section class="container mx-auto lg:px-28 px-4 lg:max-w-[800px]">
             <div class="todo mb-4">
                 <div class="todo__header">
-                    <h1 class="font-semibold text-4xl text-center text-pink-400 my-4 md:mt-10">Lista de Tareas</h1>
+                    <h1 class="font-semibold text-4xl text-center text-[#7DDCF5] my-4 md:mt-10">Lista de Tareas</h1>
                 </div>
 
                 <div class="todo__add">
                     <form id="js-todo-form">
                         <div  class="mb-5 flex flex-col md:flex-row md:justify-between items-center">
-                            <div class="md:w-[80%] w-full h-10 flex items-center justify-center bg-white rounded-[15px] border-[1px] border-pink-300 hover:border-pink-500 mb-2">
-                                <input id="input" class="w-[95%] text-center h-8 outline-none capitalize placeholder:text-pink-300 placeholder:text-center" type="text" placeholder="Agregar Tarea ..." required>
+                            <div class="md:w-[80%] w-full h-10 flex items-center justify-center bg-white rounded-[15px] border-[1px] border-[#7DDCF5] hover:border-[#5F7175] mb-2">
+                                <input id="input" class="w-[95%] text-center h-8 outline-none capitalize placeholder:text-[#7DDCF5] placeholder:text-center hover:placeholder:text-[#5F7175]" type="text" placeholder="Agregar Tarea ..." required>
                             </div>
-                            <button class="md:-mt-[10px] md:w-[18%] w-48 h-10 bg-pink-300 rounded-[20px] hover:bg-pink-500 text-white font-bold">Guardar</button>
+                            <button class="md:-mt-[10px] md:w-[18%] w-48 h-10 bg-[#5F7175] rounded-[20px] hover:text-[#5F7175] hover:bg-[#7DDCF5] text-[#7DDCF5] font-bold">Guardar</button>
                         </div>
                     </form>
                 
-                    <div class="todo__body js-todo-body w-full bg-pink-300">
+                    <div class="todo__body js-todo-body w-full bg-[#5F7175]">
                         <!-- <ul class="todo__list js-todo-list">
                             <li data-id="1" data-status="pending">
                                 <label for="1">
@@ -64,9 +64,9 @@
                     </div>
                     
 
-                    <div class="todo__footer w-full h-14 bg-pink-300 mt-4 flex items-center justify-between space-x-4 px-4">
-                        <span class="basis-1/3 count js-count text-white font-700 text-start"></span>
-                        <span class="basis-1/3 clear js-clear  text-white font-700 cursor-pointer text-center"></span>
+                    <div class="todo__footer w-full h-14 bg-[#5F7175] mt-4 flex items-center justify-between space-x-4 px-4">
+                        <span class="basis-1/3 count js-count text-[#7DDCF5] font-700 text-start"></span>
+                        <span class="basis-1/3 clear js-clear  text-[#7DDCF5] font-700 cursor-pointer text-center"></span>
                         <span onclick="marcado()" class="basis-1/3 borrador js-borrador text-red-500 font-700 cursor-pointer text-end">
                             
                         </span>
@@ -74,11 +74,5 @@
                 </div>
             </div>
         </section>
-        <div>
-            <!-- <button id="borrado" >delete varios</button> -->
-            
-            <div id="clase"></div>
-            <div id="id"></div>
-        </div>
     </body>
 </html>
