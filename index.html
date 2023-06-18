@@ -21,14 +21,14 @@
                 <div class="todo__add">
                     <form id="js-todo-form">
                         <div  class="mb-5 flex flex-col md:flex-row md:justify-between items-center">
-                            <div class="md:w-[80%] w-full h-10 flex items-center justify-center bg-white rounded-[15px] border-[1px] border-[#7DDCF5] hover:border-[#5F7175] mb-2">
-                                <input id="input" class="w-[95%] text-center h-8 outline-none capitalize placeholder:text-[#7DDCF5] placeholder:text-center hover:placeholder:text-[#5F7175]" type="text" placeholder="Agregar Tarea ..." required>
+                            <div class="md:w-[80%] w-full h-10 flex items-center justify-center bg-white rounded-[15px] border-[1px] border-[#7DDCF5] hover:border-[#939D9D] mb-2">
+                                <input id="input" class="w-[95%] text-center h-8 outline-none capitalize placeholder:text-[#7DDCF5] placeholder:text-center hover:placeholder:text-[#919DA3]" type="text" placeholder="Agregar Tarea ..." required>
                             </div>
-                            <button class="md:-mt-[10px] md:w-[18%] w-48 h-10 bg-[#5F7175] rounded-[20px] hover:text-[#5F7175] hover:bg-[#7DDCF5] text-[#7DDCF5] font-bold">Guardar</button>
+                            <button class="md:-mt-[10px] md:w-[18%] w-48 h-10 bg-[#919DA3] rounded-[20px] hover:text-[#919DA3] hover:bg-[#7DDCF5] text-[#7DDCF5] font-bold">Guardar</button>
                         </div>
                     </form>
                 
-                    <div class="todo__body js-todo-body w-full bg-[#5F7175]">
+                    <div id="principal" class="todo__body js-todo-body w-full bg-[#939D9D]">
                         <!-- <ul class="todo__list js-todo-list">
                             <li data-id="1" data-status="pending">
                                 <label for="1">
@@ -64,10 +64,10 @@
                     </div>
                     
 
-                    <div class="todo__footer w-full h-14 bg-[#5F7175] mt-4 flex items-center justify-between space-x-4 px-4">
-                        <span class="basis-1/3 count js-count text-[#7DDCF5] font-700 text-start"></span>
-                        <span class="basis-1/3 clear js-clear  text-[#7DDCF5] font-700 cursor-pointer text-center"></span>
-                        <span onclick="marcado()" class="basis-1/3 borrador js-borrador text-red-500 font-700 cursor-pointer text-end">
+                    <div class="todo__footer w-full h-14 bg-[#939D9D] mt-4 flex items-center justify-between space-x-4 px-4">
+                        <span class="md:basis-1/3 count js-count text-[#7DDCF5] font-700 text-start"></span>
+                        <span class="md:basis-1/3 clear js-clear  text-[#7DDCF5] font-700 cursor-pointer text-center"></span>
+                        <span onclick="marcado()" class="md:basis-1/3 borrador js-borrador text-red-500 font-700 cursor-pointer text-end">
                             
                         </span>
                     </div>       
