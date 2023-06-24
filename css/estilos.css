@@ -1,324 +1,321 @@
 body {
-    background-color: #f7f7f7;
-} 
+  background-color: #f7f7f7;
+}
 
 /**Contenedor de la imagen*/
 .todo__body .empty {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 250px;
-    row-gap: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 250px;
+  row-gap: 5px;
 }
 
 .todo__body .empty img {
-    width: 150px;
+  width: 150px;
 }
 
 .todo__body .empty .title {
-    color: #fff;
-    margin: 0;
+  color: #fff;
+  margin: 0;
 }
 
 /** Quitamos todos los estilos x defecto*/
 .todo__list {
-    padding: 0;
-    margin: 0;
-    list-style: none;
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
 
 /** Estilo de los items li*/
 .todo__list li {
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 2px solid white;
-    padding: 5px 10px;
-    gap: 5px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid white;
+  padding: 5px 10px;
+  gap: 5px;
 }
 
 /** Quitando los ultimos estilos de los items*/
 .todo__list li:last-child {
-    border-bottom: none;
+  border-bottom: none;
 }
 
 .todo__list li label {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    cursor: pointer;
-    gap: 5px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  cursor: pointer;
+  gap: 5px;
 }
 
 .todo__list li input[type="text"] {
-    border: none;
-    width: 100%;
-    height: 25px;
-    font-size: 15px;
-    font-weight: 700;
-    border-radius: 3px;
-    outline: none;
-    text-align: center;
-    text-transform:capitalize;
-    
+  border: none;
+  width: 100%;
+  height: 25px;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: 3px;
+  outline: none;
+  text-align: center;
+  text-transform: capitalize;
 }
 
 /** Quitar input de la lista*/
 .todo__list li input[type="text"]:focus-visible {
-    outline: none;
+  outline: none;
 }
 
 /** Lista De items*/
 .todo__list li input[type="text"]:read-only {
-    background: transparent;
-    color: #7DDCF5;
-    pointer-events: none;
+  background: transparent;
+  color: #7ddcf5;
+  pointer-events: none;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /**Estilos de la checkbox*/
 .todo__list li[data-status="pending"] input[type="checkbox"] {
-      appearance: none;
-    width: 25px;
-    height: 25px;
-    border-radius: 100%;
-    background-color: white;
-}   
-
-
-
-
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 100%;
+  background-color: white;
+}
 
 .todo__list li[data-status="completed"] input[type="checkbox"] {
-    appearance: none;
-    width: 25px;
-    height: 25px;
-    border-radius: 100%;
-    background-color: #FA6450;
-    opacity: 0.9;
-    font-size: 15px;
-    color:white; 
-    }
-
-
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 100%;
+  background-color: #fa6450;
+  opacity: 0.9;
+  font-size: 15px;
+  color: white;
+}
 
 /** Estilos cuando este marcado el texto de la tarea*/
-
 .todo__list li[data-clase="marcar"] input[type="text"] {
-    text-decoration: line-through;
-    color: #FA6450;
-    opacity: 0.9;
+  text-decoration: line-through;
+  color: #fa6450;
+  opacity: 0.9;
 }
-
-
-
-
-
-
-
-
-
 
 .todo__list li .actions {
-    display: flex;
-    column-gap: 5px;
+  display: flex;
+  column-gap: 5px;
 }
-
-
-
-
-
-
 
 @media (min-width: 150px) {
-    .borrar-lista {
-        width: 100px;
-        height: 40px;
-        border: 1px solid #7DDCF5;
-        background-color: white;
-        border-radius: 30px;
-        color: #7DDCF5;
-        font-size: 13px;
-    }
-    .borrar-lista:hover {
-        width: 100px;
-        height: 40px;
-        background-color: #7DDCF5;
-        opacity: 0.9;
-        color: #939D9D;
-        font-weight: 700;
-        border-radius: 30px;
-        font-size: 13px;
-    }
-
-    .borrar-marcados {
-        width: 100px;
-        height: 40px;
-        border: 1px solid #7DDCF5;
-        background-color: white;
-        border-radius: 30px;
-        color: #7DDCF5;
-        font-size: 11px;
-    }
-    .borrar-marcados:hover {
-        width: 100px;
-        height: 40px;
-        background-color: #7DDCF5;
-        opacity: 0.9;
-        color: #939D9D;
-        font-weight: 700;
-        border-radius: 30px;
-        font-size: 11px;
-    }
-    .pie-paginas {
-        width: 100px;
-        height: 40px;
-        border: 1px solid #7DDCF5;
-        background-color: #939D9D;
-        border-radius: 30px;
-        color: #7DDCF5;
-        font-size: 11px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .pie-paginas:hover {
-        width: 100px;
-        height: 40px;
-        border: 1px solid #939D9D;
-        background-color: #7DDCF5;
-        border-radius: 30px;
-        color: #939D9D;
-        font-size: 15px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    
-}
-
-
-
-
-
-
-
-
-
-
-@media (min-width: 500px) {
-    .borrar-lista {
-        width: 150px;
-        height: 40px;
-        border: 1px solid #7DDCF5;
-        background-color: white;
-        border-radius: 30px;
-        color: #7DDCF5;
-        font-size: 15px;
-    }
-    .borrar-lista:hover {
-        width: 150px;
-        height: 40px;
-        background-color: #7DDCF5;
-        opacity: 0.9;
-        color: #939D9D;
-        font-weight: 700;
-        border-radius: 30px;
-        font-size: 15px;
-    }
-
-
-    .borrar-marcados {
-        width: 150px;
-        height: 40px;
-        border: 1px solid #7DDCF5;
-        background-color: white;
-        border-radius: 30px;
-        color: #7DDCF5;
-        font-size: 15px;
-    }
-    .borrar-marcados:hover {
-        width: 150px;
-        height: 40px;
-        background-color: #7DDCF5;
-        opacity: 0.9;
-        color: #939D9D;
-        font-weight: 700;
-        border-radius: 30px;
-        font-size: 15px;
-    }
-    .pie-paginas {
-        width: 150px;
-        height: 40px;
-        border: 1px solid #7DDCF5;
-        background-color: #939D9D;
-        border-radius: 30px;
-        color: #7DDCF5;
-        font-size: 15px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .pie-paginas:hover {
-        width: 150px;
-        height: 40px;
-        border: 1px solid #939D9D;
-        background-color: #7DDCF5;
-        border-radius: 30px;
-        color: #939D9D;
-        font-size: 15px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    
-}
-
-
-
-
-
-
-
-
-
-
-.todo__list li .actions button {
-    background: none;
-    cursor: pointer;
-    font-size: 12px;
+  .borrar-lista {
+    width: 100px;
+    height: 40px;
+    border: 1px solid #7ddcf5;
     background-color: white;
-    color: #7DDCF5;
-    width: 30px;
-    height: 30px;
-    border-radius: 100px;
-    margin-top: 4px;
-    margin-bottom: 4px; 
-}
+    border-radius: 30px;
+    color: #7ddcf5;
+    font-size: 13px;
+  }
 
-.todo__list li .actions button:hover {   
-    background-color: #7DDCF5;
+  .borrar-lista:hover {
+    width: 100px;
+    height: 40px;
+    background-color: #7ddcf5;
     opacity: 0.9;
-    color: #939D9D;
+    color: #939d9d;
     font-weight: 700;
     border-radius: 30px;
+    font-size: 13px;
+  }
+
+  .borrar-marcados {
+    width: 100px;
+    height: 40px;
+    border: 1px solid #7ddcf5;
+    background-color: white;
+    border-radius: 30px;
+    color: #7ddcf5;
+    font-size: 11px;
+  }
+
+  .borrar-marcados:hover {
+    width: 100px;
+    height: 40px;
+    background-color: #7ddcf5;
+    opacity: 0.9;
+    color: #939d9d;
+    font-weight: 700;
+    border-radius: 30px;
+    font-size: 11px;
+  }
+
+  .pie-paginas {
+    width: 100px;
+    height: 40px;
+    border: 1px solid #7ddcf5;
+    background-color: #939d9d;
+    border-radius: 30px;
+    color: #7ddcf5;
+    font-size: 11px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .pie-paginas:hover {
+    width: 100px;
+    height: 40px;
+    border: 1px solid #939d9d;
+    background-color: #7ddcf5;
+    border-radius: 30px;
+    color: #939d9d;
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .pie-items {
+    width: 100px;
+    height: 40px;
+    border: 1px solid #7ddcf5;
+    background-color: white;
+    border-radius: 30px;
+    color: #7ddcf5;
+    font-size: 11px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .pie-items:hover {
+    width: 100px;
+    height: 40px;
+    border: 1px solid white;
+    background-color: #7ddcf5;
+    border-radius: 30px;
+    color: #939d9d;
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
+@media (min-width: 500px) {
+  .borrar-lista {
+    width: 150px;
+    height: 40px;
+    border: 1px solid #7ddcf5;
+    background-color: white;
+    border-radius: 30px;
+    color: #7ddcf5;
+    font-size: 15px;
+  }
+
+  .borrar-lista:hover {
+    width: 150px;
+    height: 40px;
+    background-color: #7ddcf5;
+    opacity: 0.9;
+    color: #939d9d;
+    font-weight: 700;
+    border-radius: 30px;
+    font-size: 15px;
+  }
+
+  .borrar-marcados {
+    width: 150px;
+    height: 40px;
+    border: 1px solid #7ddcf5;
+    background-color: white;
+    border-radius: 30px;
+    color: #7ddcf5;
+    font-size: 15px;
+  }
+
+  .borrar-marcados:hover {
+    width: 150px;
+    height: 40px;
+    background-color: #7ddcf5;
+    opacity: 0.9;
+    color: #939d9d;
+    font-weight: 700;
+    border-radius: 30px;
+    font-size: 15px;
+  }
+
+  .pie-paginas {
+    width: 150px;
+    height: 40px;
+    border: 1px solid #7ddcf5;
+    background-color: #939d9d;
+    border-radius: 30px;
+    color: #7ddcf5;
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .pie-paginas:hover {
+    width: 150px;
+    height: 40px;
+    border: 1px solid #939d9d;
+    background-color: #7ddcf5;
+    border-radius: 30px;
+    color: #939d9d;
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .pie-items {
+    width: 150px;
+    height: 40px;
+    border: 1px solid #7ddcf5;
+    background-color: white;
+    border-radius: 30px;
+    color: #7ddcf5;
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .pie-items:hover {
+    width: 150px;
+    height: 40px;
+    border: 1px solid white;
+    background-color: #7ddcf5;
+    border-radius: 30px;
+    color: #939d9d;
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+  }
+}
+
+.todo__list li .actions button {
+  background: none;
+  cursor: pointer;
+  font-size: 12px;
+  background-color: white;
+  color: #7ddcf5;
+  width: 30px;
+  height: 30px;
+  border-radius: 100px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.todo__list li .actions button:hover {
+  background-color: #7ddcf5;
+  opacity: 0.9;
+  color: #939d9d;
+  font-weight: 700;
+  border-radius: 30px;
+}
