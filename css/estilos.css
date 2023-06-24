@@ -178,7 +178,7 @@ body {
         font-size: 11px;
     }
     .borrar-marcados:hover {
-        width: 150px;
+        width: 100px;
         height: 40px;
         background-color: #7DDCF5;
         opacity: 0.9;
@@ -200,7 +200,7 @@ body {
         align-items: center;
     }
     .pie-paginas:hover {
-        width: 150px;
+        width: 100px;
         height: 40px;
         border: 1px solid #939D9D;
         background-color: #7DDCF5;
