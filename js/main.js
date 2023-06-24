@@ -11,7 +11,7 @@ let limite = 3;
 let anterior = document.getElementById("anterior");
 let siguiente = document.getElementById("siguiente");
 let contenedorBotones = document.getElementById("contenedorBotones");
-
+let numeroDePaginas = document.getElementById("numeroDePaginas");
 anterior.addEventListener("click", anteriorP);
 siguiente.addEventListener("click", siguienteP);
 let principal = document.getElementById("principal");
@@ -96,9 +96,12 @@ function renderEmptyState() {
                                 <img src="img/tareas.png" alt="empty state">
                                 <p class="title">Sin Tareas Pendientes ...</p>
                            </div>`;
-    $count.innerHTML = `${todos.length} Tareas`;
+    $count.innerHTML = "";
     $clear.innerHTML = "";
     $borrador.innerHTML = "";
+    numeroDePaginas.innerHTML = "";
+    $count.classList.add('hidden');
+    numeroDePaginas.classList.add('hidden');
   }
 }
 
@@ -314,7 +317,8 @@ function primerosDatos() {
   let x = Math.ceil(cantidadPaginas);
   document.getElementById("numeroDePaginas").innerHTML =
     "Pagina: " + pagina + " / " + x;
-
+    $count.classList.remove('hidden');
+    numeroDePaginas.classList.remove('hidden');
   if (pagina <= 1) {
     siguiente.classList.add("hidden");
     anterior.classList.add("hidden");
