@@ -63,11 +63,18 @@
                         
                     </div>
 
-                    <div id="contenedorBotones" class="flex justify-center space-x-4">
-                        <button class="hidden" id="anterior" >anterior</button>
-                        <button class="hidden" id="siguiente">siguiente</button>
-
-                        <div id="numeroDePaginas" class="mt-5"> </div>
+                    <div id="contenedorBotones" class="flex flex-col justify-center space-y-2 mt-4">
+                        <div class="flex justify-between space-x-4">
+                            <div class="basis-1/3 flex justify-end">
+                                <button class="hidden borrar-marcados" id="anterior" >anterior</button>
+                            </div>
+                            <div class="basis-1/3 flex justify-center">
+                                <div id="numeroDePaginas" class="pie-paginas"> </div>
+                            </div>
+                            <div class="basis-1/3 flex justify-start">
+                                <button class="hidden borrar-marcados " id="siguiente">siguiente</button>
+                            </div>
+                        </div>                     
                     </div>
                     
 
