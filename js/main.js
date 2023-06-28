@@ -12,8 +12,6 @@ let anterior = document.getElementById("anterior");
 let siguiente = document.getElementById("siguiente");
 let contenedorBotones = document.getElementById("contenedorBotones");
 let numeroDePaginas = document.getElementById("numeroDePaginas");
-anterior.addEventListener("click", anteriorP);
-siguiente.addEventListener("click", siguienteP);
 let principal = document.getElementById("principal");
 
 //Datos globales para el array todos
@@ -24,6 +22,9 @@ window.addEventListener("load", cargarVentana);
 $todoForm.addEventListener("submit", handleFormSubmit);
 $todoBody.addEventListener("click", handleFormAction);
 $clear.addEventListener("click", handleClearTodos);
+anterior.addEventListener("click", anteriorP);
+siguiente.addEventListener("click", siguienteP);
+
 
 function handleFormSubmit(e) {
   e.preventDefault();
